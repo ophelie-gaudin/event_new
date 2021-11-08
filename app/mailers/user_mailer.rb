@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: 'no-reply@eventbrite4test.fr'
+  default from: 'pikaboooo1995@gmail.com'
   # objectif est que nos e-mails affichent toujours une adresse d’e-mail 
   # d'envoi : soit celle définie par la méthode du mailer, soit, à défaut, 
   # no-reply@monsite.fr.
