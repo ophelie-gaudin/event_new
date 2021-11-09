@@ -56,7 +56,6 @@ french_cities_array = ["Paris", "Lyon", "Marseille", "Toulouse", "Montpellier", 
 
   e.save
 
-  #  ! Les events et tous leurs attributs s'affichent mais ne sont pas intégrés dans la BD
   puts e
   puts e.start_date
   puts e.duration
