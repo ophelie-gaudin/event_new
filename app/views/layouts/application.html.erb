@@ -48,8 +48,15 @@
 
 
     <% if user_signed_in? %>
+
+    <%@current_user = current_user%>
+
       <li class="nav-item">
           Bienvenue à toi, <%= current_user.email %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Mon compte", user_path(current_user.id) %> 
       </li>
 
       <li class="nav-item">

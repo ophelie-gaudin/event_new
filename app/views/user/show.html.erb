@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+
+<body>
+
+<h1> Tes informations personnelles </h1>
+<p>
+Ton prénom : <%= current_user.first_name %>
+<br />
+Ton nom : <%= current_user.last_name %>
+<br />
+Ta description : <%= current_user.description %>
+</p>
+
+<%= link_to "Changer mes informations personnelles ", edit_user_path %>
+
+______________________________________________
+
+<h3> Tes informations de connexion : </h3>
+Email : <%= @user_email %>
+<br />
+<%= link_to "Changer mes informations de connexion", edit_user_registration_path %>
+<br />
+<%= link_to "Back", :back %>
