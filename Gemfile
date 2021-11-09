@@ -74,3 +74,5 @@ group :development do
 end
 
 gem "letter_opener", group: :development
+
+gem 'devise'

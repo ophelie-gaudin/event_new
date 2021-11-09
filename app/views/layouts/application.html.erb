@@ -19,6 +19,10 @@
 
   <body>
 
+# ACtion demandée par devise
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
 
 # ! Changer les liens en < link_to "text", _path >
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,25 +45,28 @@
         <a class="nav-link" href="#new_event_path">Créer un évènement</a>
       </li>
 
+
+
+    <% if user_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="#registration_new_path">S'inscrire</a>
+          Bienvenue à toi, <%= current_user.email %>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link disabled" href="#session_new_path">Se connecter</a>
+        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
       </li>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mon profil
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#user_path">Voir mon profil</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#session_path">Se déconnecter</a>
-        </div>
+      <% else %>
+
+      <li class="nav-item">
+        <%= link_to "Se connecter", new_user_session_path %>
       </li>
 
+      <li class="nav-item">
+          <%= link_to "S'inscrire", new_user_registration_path %>
+      </li>
+
+      <% end %>
 
     </ul>
 
