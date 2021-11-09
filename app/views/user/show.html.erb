@@ -9,13 +9,20 @@
 
 <body>
 
-<h1> Tes informations personnelles </h1>
+
+
+
+
+<% if current_user.id == params[:id].to_i%>
+<%@user = current_user %>
+
+<h1> Tes informations personnelles : </h1>
 <p>
-Ton prénom : <%= current_user.first_name %>
+Prénom : <%= @user.first_name %>
 <br />
-Ton nom : <%= current_user.last_name %>
+Nom : <%= @user.last_name %>
 <br />
-Ta description : <%= current_user.description %>
+Description : <%= @user.description %>
 </p>
 
 <%= link_to "Changer mes informations personnelles ", edit_user_path %>
@@ -28,3 +35,29 @@ Email : <%= @user_email %>
 <%= link_to "Changer mes informations de connexion", edit_user_registration_path %>
 <br />
 <%= link_to "Back", :back %>
+<%else%>
+
+
+<%@user = User.find(params[:id].to_i) %>
+
+<h1> Tes informations personnelles : </h1>
+<p>
+Prénom : <%= @user.first_name %>
+<br />
+Nom : <%= @user.last_name %>
+<br />
+Description : <%= @user.description %>
+</p>
+
+<%= link_to "Changer mes informations personnelles ", edit_user_path %>
+
+______________________________________________
+
+<h3> Tes informations de connexion : </h3>
+Email : <%= @user_email %>
+<br />
+<%= link_to "Changer mes informations de connexion", edit_user_registration_path %>
+<br />
+<%= link_to "Back", :back %>
+
+<% end %>
