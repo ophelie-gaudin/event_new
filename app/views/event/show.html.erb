@@ -1,0 +1,34 @@
+<h1>Tu veux en voir plus ? </h1>
+
+    <%# EVENT CARD %>
+      <div class="card " style="width: 18rem;">
+        <div class="card-body ">
+        <h5 class="card-title"><%=@event.title%></h5>
+        <% puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"%>
+        <% puts @event%>
+        <% puts @event.admin_id%>
+
+
+
+        <% puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"%>
+
+        <h6 class="card-subtitle mb-2 text-muted">Créé par : <%=User.find(@event.admin_id).first_name%></h6>
+        <br />
+        <h6 class="card-subtitle mb-2 text-muted">Aura lieu à : <%=@event.location%></h6>
+        <br />
+        <h6 class="card-subtitle mb-2 text-muted">Détails : </h6>
+        <p><%=@event.description%></p>
+        <br />
+        <h6 class="card-subtitle mb-2 text-muted">Date : </h6>
+        <p><%=@event.start_date%></p>
+        <br />
+        <h6 class="card-subtitle mb-2 text-muted">Durée : </h6>
+        <%duration_in_hour = @event.duration/60%>
+        <p><%= duration_in_hour %> heures // <%= @event.duration %> minutes </p>
+        <br />
+        <h6 class="card-subtitle mb-2 text-muted">Prix : </h6>
+        <p><%= @event.price %> € </p>
+        <br />
+        <button type="button" class="btn btn-primary">Je participe</button>
+        </div>
+        </div>

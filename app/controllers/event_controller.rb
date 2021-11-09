@@ -12,16 +12,20 @@ class EventController < ApplicationController
   end
 
   def new
+    if user_signed_in?
     @event = Event.new(title: "", description: "", admin_id: current_user.id)
 
     puts "________________________________________"
     puts "NNNNEEEEWWWW"
     puts "________________________________________"
     # Méthode qui crée un event vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
-
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
+
     puts "On rentre dans CREATE"
     @title = params[:event][:event_title]
     @description = params[:event][:event_description] 
@@ -47,6 +51,12 @@ class EventController < ApplicationController
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
       end
     
+  end
+
+  def show
+    # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
+    @event = Event.find(params[:id].to_i)
+
   end
 
 end
