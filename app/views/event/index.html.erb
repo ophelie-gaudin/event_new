@@ -1,2 +1,39 @@
 <h1>Event#index</h1>
 <p>Find me in app/views/event/index.html.erb</p>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"> 
+ 
+ </head>
+   
+ <body>
+
+    <h1 class="text-center">The Events Project</h1>
+    
+    <div class = "d-inline-flex flex-wrap justify-content-around align-self-stretch">
+
+      <%@all_events_array.each do |event| %>
+        <div class="card m-3 " style="width: 18rem;">
+          <div class="card-body ">
+            <h5 class="card-title"> <%= event.title %></h5>
+            <% author_name = event.find_author.first_name %>
+            <h6> de: <%= author_name %> </h6>
+            <h6> A: <%= event.user.city.name%> </h6>
+            <p class="card-text"> <%= event.content %></p> 
+            <a href="/event/<%= event.id %>">Voir les détails de cet évènement</a>
+          </div>
+        </div>
+      <% end %>
+      
+    </div>
+
+
+  </body>
+</html>
